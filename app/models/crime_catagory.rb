@@ -1,0 +1,2 @@
+class CrimeCatagory < ApplicationRecord
+end
