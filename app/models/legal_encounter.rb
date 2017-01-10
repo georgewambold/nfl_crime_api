@@ -1,0 +1,2 @@
+class LegalEncounter < ApplicationRecord
+end
