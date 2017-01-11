@@ -28,8 +28,7 @@ module API
       end
 
       attribute :name do 
-        player = object.player
-        "#{player.first_name.titleize} #{player.last_name.titleize}"
+        player = object.player.titleized_full_name
       end
 
       attribute :player_id do
