@@ -1,2 +1,0 @@
-class CrimeCatagory < ApplicationRecord
-end

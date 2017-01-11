@@ -10,15 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110235405) do
+ActiveRecord::Schema.define(version: 20170111152742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "crime_catagories", force: :cascade do |t|
+  create_table "crime_categories", force: :cascade do |t|
     t.string   "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "crimes", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "team_id"
+    t.integer  "position_id"
+    t.integer  "legal_encounter_id"
+    t.string   "description"
+    t.string   "outcome"
+    t.datetime "date_of_incident"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["legal_encounter_id"], name: "index_crimes_on_legal_encounter_id", using: :btree
+    t.index ["player_id"], name: "index_crimes_on_player_id", using: :btree
+    t.index ["position_id"], name: "index_crimes_on_position_id", using: :btree
+    t.index ["team_id"], name: "index_crimes_on_team_id", using: :btree
   end
 
   create_table "legal_encounters", force: :cascade do |t|
