@@ -18,7 +18,7 @@ module API
       end
 
       attribute :arrest_count do 
-        object.crimes.count
+        object.crimes_count
       end
 
       has_many :teams 
