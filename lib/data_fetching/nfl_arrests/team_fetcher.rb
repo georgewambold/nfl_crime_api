@@ -14,7 +14,7 @@ module DataFetching
         # which is not accurate.
         teams.each do |team|
           Team.find_or_create_by(
-            team_code: team["Team"],
+            team_code: team["Team"].strip,
             team_name: team["Team_name"],
             team_city: team["Team_city"]
           )
