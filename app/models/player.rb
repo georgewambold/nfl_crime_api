@@ -1,11 +1,11 @@
 class Player < ApplicationRecord
   has_many :crimes
-  has_many :teams, through: :crimes
-  has_many :positions, through: :crimes
-  has_many :legal_encounters, through: :crimes
-  has_many :crime_categories, through: :crimes
+  has_many :teams, -> { distinct }, through: :crimes
+  has_many :positions, -> { distinct }, through: :crimes
+  has_many :legal_encounters, -> { distinct }, through: :crimes
+  has_many :crime_categories, -> { distinct }, through: :crimes
 
-  def titleized_full_name 
+  def titleized_full_name
     "#{first_name.titleize} #{last_name.titleize}"
   end
 
@@ -16,7 +16,7 @@ class Player < ApplicationRecord
   def last_arrest_associated_position
     latest_crime.position
   end
-  
+
   def crimes_count
     crimes.count
   end

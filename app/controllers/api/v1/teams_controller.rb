@@ -8,10 +8,10 @@ module API
 
       def index
         @teams = Team.all
-        render json: @teams
+        render json: @teams, root: 'teams', adapter: :json
       end
 
-      private 
+      private
 
       def show_params
         params.permit(:id)

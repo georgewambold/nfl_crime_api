@@ -8,7 +8,7 @@ module API
 
       def index
         @players = Player.all
-        render json: @players
+        render json: @players, root: 'players', adapter: :json
       end
 
       private 
