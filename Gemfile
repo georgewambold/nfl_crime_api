@@ -13,6 +13,9 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
+# httparty
+gem 'httparty'
+
 # Active model serializers for JSON responses
 gem 'active_model_serializers', '~> 0.10.0'
 
