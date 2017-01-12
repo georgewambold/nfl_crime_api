@@ -1,6 +1,6 @@
-module External_APIs
-  module NFL_arrests
-    class API_client
+module ExternalAPIs
+  module NFLArrests
+    class APIClient
       include HTTParty
       base_uri 'http://nflarrest.com/api'
 
