@@ -2,13 +2,19 @@ module API
   module V1
     class TeamsController < ApplicationController
       def show
-        @team = Team.find(params[:id])
+        @team = Team.find(show_params[:id])
         render json: @team
       end
 
       def index
         @teams = Team.all
         render json: @teams
+      end
+
+      private 
+
+      def show_params
+        params.permit(:id)
       end
     end
   end
