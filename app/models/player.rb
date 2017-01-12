@@ -21,6 +21,8 @@ class Player < ApplicationRecord
     crimes.count
   end
 
+  private 
+
   def latest_crime
     crimes.order(:date_of_incident).first
   end
