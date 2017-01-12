@@ -19,6 +19,12 @@ gem 'httparty'
 # Active model serializers for JSON responses
 gem 'active_model_serializers', '~> 0.10.0'
 
+# gem 'sidekiq'
+
+gem 'rest-client'
+
+gem 'rack-cors', :require => 'rack/cors'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

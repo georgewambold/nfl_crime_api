@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170111183746) do
     t.integer "crime_id",          null: false
     t.integer "crime_category_id", null: false
     t.index ["crime_category_id"], name: "index_crime_categories_crimes_on_crime_category_id", using: :btree
-    t.index ["crime_id", "crime_category_id"], name: "index_crime_categories_crimes_on_crime_id_and_crime_category_id", using: :btree
+    t.index ["crime_id"], name: "index_crime_categories_crimes_on_crime_id", using: :btree
   end
 
   create_table "crimes", force: :cascade do |t|

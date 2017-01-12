@@ -8,10 +8,10 @@ module API
 
       def index
         @crimes = Crime.all
-        render json: @crimes
+        render json: @crimes, root: 'crimes', meta: { page: 10 }, adapter: :json
       end
 
-      private 
+      private
 
       def show_params
         params.permit(:id)
