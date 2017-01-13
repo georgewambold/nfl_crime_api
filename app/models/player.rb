@@ -1,4 +1,5 @@
 class Player < ApplicationRecord
+
   has_many :crimes
   has_many :teams, -> { distinct }, through: :crimes
   has_many :positions, -> { distinct }, through: :crimes

@@ -1,7 +1,7 @@
 module API
   module V1
-    class TeamSerializer < ActiveModel::Serializer
-      attributes :id, :team_code, :team_name, :team_city
+    class PositionSerializer < ActiveModel::Serializer
+      attributes :id, :name
 
       attribute :crime_count do 
         object.crimes.count
