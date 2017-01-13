@@ -3,7 +3,7 @@ module API
     class CrimesController < ApplicationController
       def show
         @crime = Crime.find(show_params[:id])
-        render json: @crime
+        render json: @crime, root: 'crime', adapter: :json
       end
 
       def index

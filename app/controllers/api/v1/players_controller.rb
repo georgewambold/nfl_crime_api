@@ -3,7 +3,7 @@ module API
     class PlayersController < ApplicationController
       def show
         @player = Player.find(show_params[:id])
-        render json: @player
+        render json: @player, root: 'player', adapter: :json
       end
 
       def index
@@ -11,7 +11,7 @@ module API
         render json: @players, root: 'players', adapter: :json
       end
 
-      private 
+      private
 
       def show_params
         params.permit(:id)
