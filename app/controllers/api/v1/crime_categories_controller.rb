@@ -3,7 +3,7 @@ module API
     class CrimeCategoriesController < ApplicationController
       def show
         @crime_category = crime_category_with_associations.find(show_params[:id])
-        render json: @crime_category, serializer: CrimeCategoryShowSerializer
+        render json: @crime_category, root: 'crime_category', serializer: CrimeCategoryShowSerializer, adapter: :json
       end
 
       def index
