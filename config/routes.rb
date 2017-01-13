@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :crimes, only: [:index, :show]
       resources :players, only: [:index, :show]
       resources :teams, only: [:index, :show]
+      resources :positions, only: [:index, :show]
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
