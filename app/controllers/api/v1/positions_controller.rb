@@ -3,7 +3,7 @@ module API
     class PositionsController < ApplicationController
       def show
         @position = Position.find(show_params[:id])
-        render json: @position, root: 'position', serializer: PositionShowSerializer
+        render json: @position, root: 'position', serializer: PositionShowSerializer, adapter: :json
       end
 
       def index
