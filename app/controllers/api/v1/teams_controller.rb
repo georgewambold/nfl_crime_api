@@ -3,7 +3,7 @@ module API
     class TeamsController < ApplicationController
       def show
         @team = Team.find(show_params[:id])
-        render json: @team
+        render json: @team, root: 'team', adapter: :json
       end
 
       def index
