@@ -2,12 +2,12 @@ module API
   module V1
     class PlayersController < ApplicationController
       def show
-        @player = Player.find(show_params[:id])
+        @player = player_with_association.find(show_params[:id])
         render json: @player, serializer: PlayerShowSerializer, root: 'player', adapter: :json
       end
 
       def index
-        @players = player_with_association.page(params[:page])
+        @players = Player.page(params[:page])
         render json: @players, meta: pagination_metadata(:players), root: 'players', adapter: :json
       end
 
