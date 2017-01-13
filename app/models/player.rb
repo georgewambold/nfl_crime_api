@@ -25,6 +25,6 @@ class Player < ApplicationRecord
   private 
 
   def latest_crime
-    crimes.order(:date_of_incident).first
+    crimes.order('date_of_incident DESC').first
   end
 end
