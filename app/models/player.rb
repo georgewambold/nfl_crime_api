@@ -6,6 +6,9 @@ class Player < ApplicationRecord
   has_many :legal_encounters, -> { distinct }, through: :crimes
   has_many :crime_categories, -> { distinct }, through: :crimes
 
+  # Scopes 
+  scope :top, -> { select("players.id, COUNT(crimes.id) AS crimes_count").joins(:crimes).group("players.id").order("crimes_count DESC").limit(10).map(&:id) }
+
   def titleized_full_name
     "#{first_name.titleize} #{last_name.titleize}"
   end
