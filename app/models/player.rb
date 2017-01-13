@@ -1,4 +1,7 @@
 class Player < ApplicationRecord
+  
+  include PgSearch
+  pg_search_scope :search_by_full_name, :against => [ [:first_name, 'B'], [:last_name, 'A']], :using => { :tsearch => { :prefix => true } }
 
   has_many :crimes
   has_many :teams, -> { distinct }, through: :crimes

@@ -16,6 +16,8 @@ gem 'puma', '~> 3.0'
 # Pagination gem
 gem 'kaminari'
 
+gem 'pg_search'
+
 # httparty
 gem 'httparty'
 
