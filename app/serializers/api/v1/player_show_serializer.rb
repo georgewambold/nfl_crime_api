@@ -1,6 +1,6 @@
 module API
   module V1
-    class PlayerSerializer < ActiveModel::Serializer
+    class PlayerShowSerializer < ActiveModel::Serializer
       attributes :id
 
       attribute :name do
@@ -22,6 +22,9 @@ module API
       attribute :arrest_count do
         object.crimes_count
       end
+
+      has_many :teams
+      has_many :crimes
     end
   end
 end

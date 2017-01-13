@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :crimes, only: [:index, :show]
       resources :players, only: [:index, :show]
+      get '/top_players', to: "players#top"
       resources :teams, only: [:index, :show]
       resources :positions, only: [:index, :show]
       resources :crime_categories, only: [:index, :show]
