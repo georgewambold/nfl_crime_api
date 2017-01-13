@@ -3,12 +3,12 @@ module API
     class PositionsController < ApplicationController
       def show
         @position = Position.find(show_params[:id])
-        render json: @position
+        render json: @position, root: 'position', serializer: PositionShowSerializer
       end
 
       def index
         @positions = Position.all
-        render json: @positions, root: 'positions', meta: { page: 10 }, adapter: :json
+        render json: @positions, root: 'positions', adapter: :json
       end
 
       private
