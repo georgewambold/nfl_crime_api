@@ -39,6 +39,7 @@ gem 'rack-cors', :require => 'rack/cors'
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
