@@ -7,7 +7,12 @@ module API
       end
 
       def index
-        @players = Player.page(params[:page])
+        if index_params[:search]
+          @players = Player.page(index_params[:page]).search_by_full_name(index_params[:search]) 
+        else 
+          @players = Player.page(index_params[:page])
+        end
+
         render json: @players, meta: pagination_metadata(:players), root: 'players', adapter: :json
       end
 
@@ -20,6 +25,10 @@ module API
 
       def player_with_association
         Player.includes(:crimes, :teams, :positions, :legal_encounters, :crime_categories)
+      end
+
+      def index_params
+        params.permit(:page, :search)
       end
 
       def show_params
