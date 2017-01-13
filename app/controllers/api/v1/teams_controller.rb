@@ -3,7 +3,7 @@ module API
     class TeamsController < ApplicationController
       def show
         @team = Team.includes(:players).find(show_params[:id])
-        render json: @team, serializer: TeamShowSerializer
+        render json: @team, root: 'team', serializer: TeamShowSerializer, adapter: :json
       end
 
       def index
