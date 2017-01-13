@@ -61,8 +61,14 @@ module DataFetching
       end
 
       def find_or_create_category(categories)
-        categories.split(", ").map do |cc|
-          CrimeCategory.find_or_create_by(category: cc)
+        categories.split(",").map do |raw_category|
+          category = raw_category.gsub(/[^A-Za-z0-9\s]/i, ' ').strip.downcase
+          category = 'alcohol' if category == 'alcoh' || category == 'alcoho'
+          category = 'disorderly conduct' if category == 'disorderly condu'
+          category = 'resisting arrest' if category == 'resisting arres'
+          category = 'reckless driving' if category == 'reckless dri'
+
+          CrimeCategory.find_or_create_by(category: category)
         end
       end
 
