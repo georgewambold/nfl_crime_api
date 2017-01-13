@@ -3,8 +3,9 @@ module API
     class TeamSerializer < ActiveModel::Serializer
       attributes :id, :team_code, :team_name, :team_city
 
-      has_many :players
-      has_many :crimes
+      attribute :crime_count do 
+        object.crimes.count
+      end
     end
   end
 end
