@@ -8,7 +8,7 @@ module API
 
       def index
         @crimes = crime_with_associations.all
-        render json: @crimes, root: 'crimes', meta: { page: 10 }, adapter: :json
+        render json: @crimes, root: 'crimes', meta: pagination_metadata(:crimes), adapter: :json
       end
 
       private

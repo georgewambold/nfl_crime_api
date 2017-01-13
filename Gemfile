@@ -13,6 +13,9 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
+# Pagination gem
+gem 'kaminari'
+
 # httparty
 gem 'httparty'
 

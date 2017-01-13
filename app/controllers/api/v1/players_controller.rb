@@ -7,8 +7,8 @@ module API
       end
 
       def index
-        @players = Player.all
-        render json: @players, root: 'players', adapter: :json
+        @players = Player.page(params[:page])
+        render json: @players, meta: pagination_metadata(:players), root: 'players', adapter: :json
       end
 
       private
